@@ -83,7 +83,7 @@ module.exports = {
       '@Components': path.resolve(__dirname, 'src/components/'),
       '@Images': path.resolve(__dirname, 'src/assets/images/'),
       '@Fonts': path.resolve(__dirname, 'src/assets/fonts/'),
-      '@Global': path.resolve(__dirname, 'src/assets/styles'),
+      '@Styles': path.resolve(__dirname, 'src/assets/styles'),
       '@Utils': path.resolve(__dirname, 'src/utils/'),
     },
   },
