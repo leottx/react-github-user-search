@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header`
   font-weight: 700;
 `;
 export const LogoLink = styled.a`
-  font-size: 3rem;
+  font-size: 2.4rem;
   cursor: pointer;
   transition-property: color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -20,7 +20,7 @@ export const LogoLink = styled.a`
 export const ThemeButton = styled.button`
   text-transform: uppercase;
   letter-spacing: 0.3em;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   display: flex;
   align-items: center;
   gap: 1rem;

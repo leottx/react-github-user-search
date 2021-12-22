@@ -8,7 +8,7 @@ const GitHeader = () => {
       <LogoLink>devfinder</LogoLink>
       <ThemeButton>
         Light
-        <MdWbSunny size={24} />
+        <MdWbSunny size={22} />
       </ThemeButton>
     </HeaderContainer>
   );
