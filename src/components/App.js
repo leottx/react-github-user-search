@@ -1,6 +1,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
+// COMPONENTS
+import { Container } from '@Styles/global';
+import GitHeader from '@Components/GitHeader';
+
 // IMAGES
 import favicon from '@Images/favicon.svg';
 
@@ -14,6 +18,9 @@ const App = () => {
         <link rel='shortcut icon' href={favicon} />
         <title>Github User Search - Leonardo Teixeira</title>
       </Helmet>
+      <Container>
+        <GitHeader />
+      </Container>
     </>
   );
 };
