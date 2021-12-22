@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 // COMPONENTS
 import { Container } from '@Styles/global';
 import GitHeader from '@Components/GitHeader';
+import GitMain from '@Components/GitMain';
 
 // IMAGES
 import favicon from '@Images/favicon.svg';
@@ -20,6 +21,7 @@ const App = () => {
       </Helmet>
       <Container>
         <GitHeader />
+        <GitMain />
       </Container>
     </>
   );
