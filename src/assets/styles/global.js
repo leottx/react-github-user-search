@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import SpaceMonoBold from '@Fonts/SpaceMono-Bold.ttf';
 import SpaceMonoRegular from '@Fonts/SpaceMono-Regular.ttf';
@@ -48,6 +48,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Space Mono';
     font-weight: 400;
+    background-color: var(--bg-2);
   }
   a {
     text-decoration: none;
@@ -62,4 +63,13 @@ export const GlobalStyles = createGlobalStyle`
     color: inherit;
     font-family: inherit;
   }
+`;
+
+export const Container = styled.div`
+  padding: 2.4rem;
+  max-width: 992px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
 `;
