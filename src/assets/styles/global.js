@@ -67,7 +67,7 @@ export const GlobalStyles = createGlobalStyle`
 
 export const Container = styled.div`
   padding: 2.4rem;
-  max-width: 992px;
+  max-width: 768px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
