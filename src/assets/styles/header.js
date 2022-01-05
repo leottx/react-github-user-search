@@ -7,6 +7,7 @@ export const HeaderContainer = styled.header`
   align-items: center;
   font-weight: 700;
 `;
+
 export const LogoLink = styled.a`
   font-size: 2.4rem;
   cursor: pointer;
@@ -16,7 +17,11 @@ export const LogoLink = styled.a`
   &:hover {
     color: var(--txt-3);
   }
+  @media only screen and (min-width: 667px) {
+    font-size: 3rem;
+  }
 `;
+
 export const ThemeButton = styled.button`
   text-transform: uppercase;
   letter-spacing: 0.3em;
@@ -29,5 +34,15 @@ export const ThemeButton = styled.button`
   transition-duration: 150ms;
   &:hover {
     color: var(--txt-3);
+  }
+  svg {
+    width: 22px;
+    height: auto;
+  }
+  @media only screen and (min-width: 667px) {
+    font-size: 2rem;
+    svg {
+      width: 28px;
+    }
   }
 `;
