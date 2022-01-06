@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 // ICONS
@@ -24,76 +24,103 @@ import {
   UserStatsType,
   UserBoardFooter,
   UserLinkList,
+  UserFooterItem,
   UserFooterLink,
 } from '@Styles/main';
 
 // TEMA
 import theme from '@Styles/theme';
 
-const GitUserBoard = () => {
+// UTILS
+import { getUserData } from '@Utils/api';
+
+const GitUserBoard = ({ userProfile }) => {
+  const {
+    avatar_url,
+    name,
+    login,
+    created_at,
+    bio,
+    public_repos,
+    followers,
+    following,
+    user_starsCount,
+    location,
+    blog,
+    company,
+    twitter_username,
+  } = userProfile;
+
   return (
     <ThemeProvider theme={theme}>
       <UserContainer>
         <UserBoardHeader>
-          <UserPic src={OctoCat} alt='Github user profile pic' />
+          <UserPic src={avatar_url} alt='Github user profile pic' />
           <Box>
             <UserWrapper>
               <Box>
-                <UserRealName>The Octocat</UserRealName>
-                <UserName>@octocat</UserName>
+                <UserRealName>{name}</UserRealName>
+                <UserName
+                  href={`https://github.com/${login}`}
+                >{`@${login}`}</UserName>
               </Box>
-              <UserJoinedDate>Joined 25 Jan 2011</UserJoinedDate>
+              <UserJoinedDate>{`Joined ${created_at}`}</UserJoinedDate>
             </UserWrapper>
-            <UserBio>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Voluptatibus fugiat nam optio modi impedit. Dicta maxime adipisci
-              quaerat quidem a laboriosam.
-            </UserBio>
+            {bio && <UserBio>{bio}</UserBio>}
           </Box>
         </UserBoardHeader>
         <UserBoardAbout>
-          <UserBio>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Voluptatibus fugiat nam optio modi impedit. Dicta maxime adipisci
-            quaerat quidem a laboriosam.
-          </UserBio>
+          {bio && <UserBio>{bio}</UserBio>}
           <UserStats>
             <Box>
               <UserStatsType>Repos</UserStatsType>
-              <UserStatsType>0</UserStatsType>
+              <UserStatsType>{public_repos}</UserStatsType>
             </Box>
             <Box>
               <UserStatsType>Followers</UserStatsType>
-              <UserStatsType>0</UserStatsType>
+              <UserStatsType>{followers}</UserStatsType>
             </Box>
             <Box>
               <UserStatsType>Following</UserStatsType>
-              <UserStatsType>0</UserStatsType>
+              <UserStatsType>{following}</UserStatsType>
             </Box>
             <Box>
               <UserStatsType>Stars</UserStatsType>
-              <UserStatsType>0</UserStatsType>
+              <UserStatsType>{user_starsCount}</UserStatsType>
             </Box>
           </UserStats>
         </UserBoardAbout>
         <UserBoardFooter>
           <UserLinkList>
-            <UserFooterLink>
+            <UserFooterItem>
               <MdLocationOn />
-              <span>Placeholder</span>
-            </UserFooterLink>
-            <UserFooterLink>
-              <MdLink />
-              <span>https://github.com/blog</span>
-            </UserFooterLink>
-            <UserFooterLink>
-              <FaTwitter />
-              <span>Not Avaible</span>
-            </UserFooterLink>
-            <UserFooterLink>
+              <span>{location ? location : 'Not avaible'}</span>
+            </UserFooterItem>
+            <UserFooterItem>
+              <UserFooterLink href={blog ? blog : '#'} target='_blank'>
+                <MdLink />
+                <span>{blog ? blog : 'Not avaible'}</span>
+              </UserFooterLink>
+            </UserFooterItem>
+            <UserFooterItem>
+              <UserFooterLink
+                href={
+                  twitter_username
+                    ? `https://twitter.com/${twitter_username}`
+                    : '#'
+                }
+                target='_blank'
+              >
+                <FaTwitter />
+                <span>
+                  {twitter_username ? twitter_username : 'Not avaible'}
+                </span>
+              </UserFooterLink>
+            </UserFooterItem>
+            <UserFooterItem>
               <MdOutlineApartment />
-              <span>placeholder</span>
-            </UserFooterLink>
+              <span>{company ? company : 'Not avaible'}</span>
+            </UserFooterItem>
           </UserLinkList>
         </UserBoardFooter>
       </UserContainer>
