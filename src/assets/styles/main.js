@@ -228,17 +228,29 @@ export const UserLinkList = styled.ul`
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   margin-bottom: 2rem;
-  width: 100%;
 `;
 
 export const UserFooterLink = styled.a`
   color: ${({ isAvaible }) => (isAvaible ? 'var(--txt-3)' : 'var(--txt-4)')};
   cursor: pointer;
-  font-size: 1.4rem;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
+`;
+
+export const UserFooterItem = styled.li`
+  color: ${({ isAvaible }) => (isAvaible ? 'var(--txt-3)' : 'var(--txt-4)')};
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 100%;
+  span {
+    width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   svg {
     width: 24px;
     height: 24px;
