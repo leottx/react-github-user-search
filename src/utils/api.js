@@ -31,7 +31,7 @@ function getStarsCount(repos) {
   );
 }
 
-function formatDate(date) {
+export function formatDate(date) {
   return new Date(date).toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'short',

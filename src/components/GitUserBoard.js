@@ -113,7 +113,7 @@ const GitUserBoard = ({ userProfile }) => {
               >
                 <FaTwitter />
                 <span>
-                  {twitter_username ? twitter_username : 'Not avaible'}
+                  {twitter_username ? `@${twitter_username}` : 'Not avaible'}
                 </span>
               </UserFooterLink>
             </UserFooterItem>

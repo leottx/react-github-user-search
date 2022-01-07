@@ -41,7 +41,7 @@ export const SearchButton = styled.button`
   color: var(--white);
   font-weight: 700;
   margin-left: auto;
-  transition-property: 'background';
+  transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
   &:hover {
@@ -61,16 +61,18 @@ export const Wrapper = styled.div`
 
 export const UserContainer = styled.article`
   display: grid;
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  box-shadow: 0 20px 25px -5px rgba(38, 108, 255, 0.1),
+    0 8px 10px -6px rgba(38, 108, 255, 0.1);
   grid-template-columns: 1fr 2fr;
   gap: 2.4rem;
   background: var(--white);
   padding: 3.6rem 2.4rem;
   border-radius: 1.5rem;
+  margin-bottom: 3.6rem;
   @media screen and (min-width: 768px) {
     padding: 3.6rem;
     gap: 3.2rem;
+    margin-bottom: 4.2rem;
   }
 `;
 
@@ -225,7 +227,7 @@ export const UserBoardFooter = styled.footer`
 
 export const UserLinkList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
   margin-bottom: 2rem;
 `;
@@ -246,7 +248,8 @@ export const UserFooterItem = styled.li`
   gap: 1rem;
   max-width: 100%;
   span {
-    width: 220px;
+    width: auto;
+    max-width: 180px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -257,9 +260,117 @@ export const UserFooterItem = styled.li`
   }
   @media screen and (min-width: 667px) {
     font-size: 1.6rem;
+    span {
+      max-width: 230px;
+    }
     svg {
       width: 26px;
       height: 26px;
     }
+  }
+`;
+
+export const RepoContainer = styled.section``;
+
+export const RepoButton = styled.button`
+  border-radius: 1rem;
+  border: 2px solid var(--txt-5);
+  padding: 0.8em 1em;
+  color: var(--txt-5);
+  font-weight: 700;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  font-size: 1.4rem;
+  display: block;
+  margin: 0 auto;
+  &:hover {
+    color: var(--white);
+    background: ${({ theme: { c } }) => c.bgBtn};
+  }
+  @media screen and (min-width: 667px) {
+    font-size: 1.6rem;
+  }
+`;
+
+export const RepoCardsList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  @media screen and (min-width: 768px) {
+    font-size: 1.6rem;
+    gap: 3rem;
+  }
+`;
+
+export const RepoCard = styled.li`
+  border-radius: 1.5rem;
+  background: var(--white);
+  padding: 2rem;
+  font-size: 1.4rem;
+  color: var(--txt-2);
+  line-height: 1.6;
+  box-shadow: 0 20px 25px -5px rgba(38, 108, 255, 0.1),
+    0 8px 10px -6px rgba(38, 108, 255, 0.1);
+  @media screen and (min-width: 667px) {
+    font-size: 1.6rem;
+  }
+`;
+
+export const RepoTitle = styled.h3`
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: var(--txt-1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  &:hover {
+    color: var(--txt-3);
+  }
+  &:hover a {
+    text-decoration: underline;
+  }
+  svg {
+    width: 18px;
+    height: auto;
+    transform: rotate(-53deg);
+  }
+  @media screen and (min-width: 667px) {
+    font-size: 2rem;
+  }
+`;
+
+export const RepoLink = styled.a`
+  color: inherit;
+  width: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  @media screen and (min-width: 667px) {
+    max-width: 550px;
+  }
+`;
+
+export const RepoText = styled.p`
+  margin-bottom: 1.2rem;
+  max-width: 550px;
+`;
+
+export const RepoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+`;
+
+export const RepoExtra = styled.span`
+  svg {
+    margin-right: 0.5rem;
   }
 `;
