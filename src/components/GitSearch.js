@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-// TEMA
+// THEME
 import theme from '@Styles/theme';
 
-// ICONES
+// ICONS
 import { RiSearchLine } from 'react-icons/ri';
 
-// COMPONENTES
+// COMPONENTS
 import {
   SearchContainer,
   SearchForm,
