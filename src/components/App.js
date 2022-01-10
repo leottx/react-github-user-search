@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { ThemeProvider } from 'styled-components';
 import { Helmet } from 'react-helmet';
 
-// COMPONENTS
+// STYLES
+import { lightMode, darkMode } from '@Styles/theme';
+import { GlobalStyles } from '@Styles/global';
 import { Container } from '@Styles/global';
+
+// COMPONENTS
+import ThemeContext from '@Components/ThemeContext';
 import GitHeader from '@Components/GitHeader';
 import GitMain from '@Components/GitMain';
 
@@ -10,6 +16,8 @@ import GitMain from '@Components/GitMain';
 import favicon from '@Images/favicon.svg';
 
 const App = () => {
+  const [colorMode, setColorMode] = useState(false);
+
   return (
     <>
       <Helmet>
@@ -19,10 +27,15 @@ const App = () => {
         <link rel='shortcut icon' href={favicon} />
         <title>Github User Search - Leonardo Teixeira</title>
       </Helmet>
-      <Container>
-        <GitHeader />
-        <GitMain />
-      </Container>
+      <ThemeContext.Provider value={[colorMode, setColorMode]}>
+        <ThemeProvider theme={colorMode ? darkMode : lightMode}>
+          <GlobalStyles />
+          <Container>
+            <GitHeader />
+            <GitMain />
+          </Container>
+        </ThemeProvider>
+      </ThemeContext.Provider>
     </>
   );
 };

@@ -5,7 +5,7 @@ export const Main = styled.main``;
 
 export const SearchContainer = styled.header`
   margin-bottom: 2.4rem;
-  background: var(--white);
+  background: ${({ theme: { c } }) => c.bg_1};
   border-radius: 1.5rem;
   padding: 1rem;
 `;
@@ -24,28 +24,29 @@ export const SearchForm = styled.form`
 `;
 
 export const SearchField = styled.input.attrs({ type: 'text' })`
-  color: var(--txt-1);
+  color: ${({ theme: { c } }) => c.txt_1};
+  background: transparent;
   min-width: 0;
   border: transparent;
   outline: none;
   width: 100%;
   &::placeholder {
-    color: var(--txt-2);
+    color: ${({ theme: { c } }) => c.txt_2};
   }
 `;
 
 export const SearchButton = styled.button`
-  background: var(--txt-5);
+  background: ${({ theme: { c } }) => c.txt_5};
   border-radius: 1rem;
   padding: 0.8em 1em;
-  color: var(--white);
+  color: ${({ theme: { c } }) => c.white};
   font-weight: 700;
   margin-left: auto;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
   &:hover {
-    background: ${({ theme: { c } }) => darken(0.1, c.bgBtn)};
+    background: ${({ theme: { c } }) => darken(0.1, c.bg_3)};
   }
 `;
 
@@ -55,17 +56,17 @@ export const Wrapper = styled.div`
   display: flex;
   flex-grow: 2;
   svg {
-    color: var(--txt-5);
+    color: ${({ theme: { c } }) => c.txt_5};
   }
 `;
 
 export const UserContainer = styled.article`
   display: grid;
-  box-shadow: 0 20px 25px -5px rgba(38, 108, 255, 0.1),
-    0 8px 10px -6px rgba(38, 108, 255, 0.1);
+  box-shadow: ${({ theme: { c } }) => `0 20px 25px -5px rgba(${c.shadow}, 0.1),
+    0 8px 10px -6px rgba(${c.shadow}, 0.1)`};
   grid-template-columns: 1fr 2fr;
   gap: 2.4rem;
-  background: var(--white);
+  background: ${({ theme: { c } }) => c.bg_1};
   padding: 3.6rem 2.4rem;
   border-radius: 1.5rem;
   margin-bottom: 3.6rem;
@@ -131,7 +132,7 @@ export const Box = styled.div``;
 export const UserRealName = styled.h1`
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--txt-1);
+  color: ${({ theme: { c } }) => c.txt_1};
   @media screen and (min-width: 667px) {
     font-size: 2.4rem;
   }
@@ -139,12 +140,12 @@ export const UserRealName = styled.h1`
 
 export const UserName = styled.a`
   font-size: 1.4rem;
-  color: var(--txt-5);
+  color: ${({ theme: { c } }) => c.txt_5};
   transition: color 150ms ease, text-decoration 300ms ease;
   cursor: pointer;
   &:hover {
     text-decoration: underline;
-    color: ${({ theme: { c } }) => darken(0.1, c.bgBtn)};
+    color: ${({ theme: { c } }) => darken(0.1, c.bg_3)};
   }
   @media screen and (min-width: 667px) {
     font-size: 1.8rem;
@@ -154,7 +155,7 @@ export const UserName = styled.a`
 export const UserJoinedDate = styled.span`
   display: block;
   font-size: 1.4rem;
-  color: var(--txt-2);
+  color: ${({ theme: { c } }) => c.txt_2};
   @media screen and (min-width: 667px) {
     font-size: 1.7rem;
   }
@@ -174,7 +175,7 @@ export const UserBoardAbout = styled.section`
 `;
 
 export const UserBio = styled.p`
-  color: var(--txt-2);
+  color: ${({ theme: { c } }) => c.txt_2};
   font-size: 1.4rem;
   @media screen and (min-width: 667px) {
     font-size: 1.7rem;
@@ -185,7 +186,7 @@ export const UserStats = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   border-radius: 1.5rem;
-  background: var(--bg-2);
+  background: ${({ theme: { c } }) => c.bg_2};
   padding: 2.2rem;
   gap: 1rem;
   > div {
@@ -200,23 +201,23 @@ export const UserStats = styled.div`
 
 export const UserStatsType = styled.span`
   &:first-of-type {
-    color: var(--txt-4);
+    color: ${({ theme: { c } }) => c.txt_4};
     font-size: 1.4rem;
   }
   &:last-of-type {
     font-size: 1.6rem;
     font-weight: 700;
-    color: var(--txt-1);
+    color: ${({ theme: { c } }) => c.txt_1};
   }
   @media screen and (min-width: 667px) {
     &:first-of-type {
-      color: var(--txt-4);
+      color: ${({ theme: { c } }) => c.txt_4};
       font-size: 1.6rem;
     }
     &:last-of-type {
       font-size: 2rem;
       font-weight: 700;
-      color: var(--txt-1);
+      color: ${({ theme: { c } }) => c.txt_1};
     }
   }
 `;
@@ -233,7 +234,7 @@ export const UserLinkList = styled.ul`
 `;
 
 export const UserFooterLink = styled.a`
-  color: ${({ isAvaible }) => (isAvaible ? 'var(--txt-3)' : 'var(--txt-4)')};
+  color: ${({ theme: { c } }) => c.txt_4};
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -241,7 +242,7 @@ export const UserFooterLink = styled.a`
 `;
 
 export const UserFooterItem = styled.li`
-  color: ${({ isAvaible }) => (isAvaible ? 'var(--txt-3)' : 'var(--txt-4)')};
+  color: ${({ theme: { c } }) => c.txt_4};
   font-size: 1.4rem;
   display: flex;
   align-items: center;
@@ -274,9 +275,9 @@ export const RepoContainer = styled.section``;
 
 export const RepoButton = styled.button`
   border-radius: 1rem;
-  border: 2px solid var(--txt-5);
+  border: 2px solid ${({ theme: { c } }) => c.txt_5};
   padding: 0.8em 1em;
-  color: var(--txt-5);
+  color: ${({ theme: { c } }) => c.txt_5};
   font-weight: 700;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -285,8 +286,8 @@ export const RepoButton = styled.button`
   display: block;
   margin: 0 auto;
   &:hover {
-    color: var(--white);
-    background: ${({ theme: { c } }) => c.bgBtn};
+    color: ${({ theme: { c } }) => c.white};
+    background: ${({ theme: { c } }) => c.bg_3};
   }
   @media screen and (min-width: 667px) {
     font-size: 1.6rem;
@@ -305,13 +306,13 @@ export const RepoCardsList = styled.ul`
 
 export const RepoCard = styled.li`
   border-radius: 1.5rem;
-  background: var(--white);
+  background: ${({ theme: { c } }) => c.bg_1};
   padding: 2rem;
   font-size: 1.4rem;
-  color: var(--txt-2);
+  color: ${({ theme: { c } }) => c.txt_2};
   line-height: 1.6;
-  box-shadow: 0 20px 25px -5px rgba(38, 108, 255, 0.1),
-    0 8px 10px -6px rgba(38, 108, 255, 0.1);
+  box-shadow: ${({ theme: { c } }) => `0 20px 25px -5px rgba(${c.shadow}, 0.1),
+    0 8px 10px -6px rgba(${c.shadow}, 0.1)`};
   @media screen and (min-width: 667px) {
     font-size: 1.6rem;
   }
@@ -321,13 +322,13 @@ export const RepoTitle = styled.h3`
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
   font-weight: 700;
-  color: var(--txt-1);
+  color: ${({ theme: { c } }) => c.txt_1};
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
   cursor: pointer;
   &:hover {
-    color: var(--txt-3);
+    color: ${({ theme: { c } }) => c.txt_3};
   }
   &:hover a {
     text-decoration: underline;
