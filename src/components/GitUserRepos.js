@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ThemeProvider } from 'styled-components';
 
 // THEME
 import theme from '@Styles/theme';
@@ -33,11 +32,9 @@ const GitUserRepos = ({ reposList, showRepos, setShowRepos }) => {
 
   return (
     <RepoContainer>
-      <ThemeProvider theme={theme}>
-        {!showRepos && (
-          <RepoButton onClick={() => handleShowRepos()}>Show Repos</RepoButton>
-        )}
-      </ThemeProvider>
+      {!showRepos && (
+        <RepoButton onClick={() => handleShowRepos()}>Show Repos</RepoButton>
+      )}
       {showRepos && (
         <RepoCardsList>
           {reposList.map((repo) => {

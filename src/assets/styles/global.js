@@ -48,7 +48,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Space Mono';
     font-weight: 400;
-    background-color: var(--bg-2);
+    background: ${({ theme: { c } }) => c.bg_2};
   }
   a {
     text-decoration: none;

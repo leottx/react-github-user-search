@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-// THEME
-import theme from '@Styles/theme';
-
 // ICONS
 import { RiSearchLine } from 'react-icons/ri';
 
@@ -47,9 +44,7 @@ const GitSearch = ({ updateUsername, buildUserProfile }) => {
             onChange={(e) => inputChangeHandler(e)}
           />
         </Wrapper>
-        <ThemeProvider theme={theme}>
-          <SearchButton>Search</SearchButton>
-        </ThemeProvider>
+        <SearchButton>Search</SearchButton>
       </SearchForm>
     </SearchContainer>
   );
