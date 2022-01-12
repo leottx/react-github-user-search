@@ -4,9 +4,6 @@ import React, { useEffect } from 'react';
 import { MdLocationOn, MdLink, MdOutlineApartment } from 'react-icons/md';
 import { FaTwitter } from 'react-icons/fa';
 
-// IMAGES
-import OctoCat from '@Images/octocat.png';
-
 // STYLES
 import {
   UserContainer,
@@ -26,9 +23,6 @@ import {
   UserFooterItem,
   UserFooterLink,
 } from '@Styles/main';
-
-// UTILS
-import { getUserData } from '@Utils/api';
 
 const GitUserBoard = ({ userProfile }) => {
   const {
