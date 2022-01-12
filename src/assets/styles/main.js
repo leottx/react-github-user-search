@@ -375,3 +375,37 @@ export const RepoExtra = styled.span`
     margin-right: 0.5rem;
   }
 `;
+
+export const LoadingText = styled.p`
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  color: ${({ theme: { c } }) => c.txt_3};
+  @media screen and (min-width: 667px) {
+    font-size: 2.4rem;
+  }
+`;
+
+export const LoadingDot = styled.span`
+  letter-spacing: 0;
+  opacity: 0;
+  animation-name: showDot;
+  animation-iteration-count: infinite;
+  animation-duration: 0.75s;
+  &:nth-child(2) {
+    animation-delay: 0.25s;
+  }
+  &:last-child {
+    animation-delay: 0.5s;
+  }
+  @keyframes showDot {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+`;

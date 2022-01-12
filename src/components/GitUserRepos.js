@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 
-// THEME
-import theme from '@Styles/theme';
-
 // ICONS
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import { GoPrimitiveDot } from 'react-icons/go';
@@ -21,18 +18,33 @@ import {
   RepoExtra,
 } from '@Styles/main';
 
+// COMPONENTS
+import Loading from '@Components/Loading';
+
 // UTILS
 import { nanoid } from 'nanoid';
 import { formatDate } from '@Utils/api';
+import { getRandomInterval } from '@Utils/aux';
 
-const GitUserRepos = ({ reposList, showRepos, setShowRepos }) => {
+const GitUserRepos = ({
+  reposList,
+  showRepos,
+  setShowRepos,
+  isLoading,
+  setIsLoading,
+}) => {
   const handleShowRepos = () => {
-    setShowRepos(!showRepos);
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setShowRepos(!showRepos);
+    }, getRandomInterval(400, 1500));
   };
 
   return (
     <RepoContainer>
-      {!showRepos && (
+      {isLoading && <Loading />}
+      {!showRepos && !isLoading && (
         <RepoButton onClick={() => handleShowRepos()}>Show Repos</RepoButton>
       )}
       {showRepos && (
