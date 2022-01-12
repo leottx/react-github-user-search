@@ -4,9 +4,10 @@ import { darken } from 'polished';
 export const Main = styled.main``;
 
 export const SearchContainer = styled.header`
-  margin-bottom: 2.4rem;
   background: ${({ theme: { c } }) => c.bg_1};
   border-radius: 1.5rem;
+  ${({ showError, theme: { c } }) =>
+    showError ? `outline: 2px solid ${c.txt_6}` : 'outline: none'};
   padding: 1rem;
 `;
 
@@ -50,6 +51,23 @@ export const SearchButton = styled.button`
   }
 `;
 
+export const SearchErrorMsg = styled.p`
+  color: ${({ theme: { c } }) => c.txt_6};
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-top: 0.8rem;
+  margin-left: 1rem;
+  margin-bottom: 2.4rem;
+  @media screen and (min-width: 667px) {
+    font-size: 1.6rem;
+  }
+`;
+
+export const SearchErrorLink = styled.a`
+  color: inherit;
+  text-decoration: underline;
+`;
+
 export const Wrapper = styled.div`
   gap: 1rem;
   align-items: center;
@@ -61,6 +79,7 @@ export const Wrapper = styled.div`
 `;
 
 export const UserContainer = styled.article`
+  margin-top: 2.4rem;
   display: grid;
   box-shadow: ${({ theme: { c } }) => `0 20px 25px -5px rgba(${c.shadow}, 0.1),
     0 8px 10px -6px rgba(${c.shadow}, 0.1)`};
@@ -69,7 +88,6 @@ export const UserContainer = styled.article`
   background: ${({ theme: { c } }) => c.bg_1};
   padding: 3.6rem 2.4rem;
   border-radius: 1.5rem;
-  margin-bottom: 3.6rem;
   @media screen and (min-width: 768px) {
     padding: 3.6rem;
     gap: 3.2rem;
@@ -271,7 +289,16 @@ export const UserFooterItem = styled.li`
   }
 `;
 
-export const RepoContainer = styled.section``;
+export const RepoContainer = styled.section`
+  > div {
+    margin-top: 3.6rem;
+  }
+  @media screen and (min-width: 768px) {
+    > div {
+      margin-top: 4.2rem;
+    }
+  }
+`;
 
 export const RepoButton = styled.button`
   border-radius: 1rem;
@@ -383,6 +410,7 @@ export const LoadingText = styled.p`
   text-transform: uppercase;
   letter-spacing: 0.3rem;
   color: ${({ theme: { c } }) => c.txt_3};
+  margin-top: 4.2rem;
   @media screen and (min-width: 667px) {
     font-size: 2.4rem;
   }
