@@ -44,42 +44,48 @@ const GitUserRepos = ({
   return (
     <RepoContainer>
       {isLoading && <Loading />}
-      {!showRepos && !isLoading && (
-        <RepoButton onClick={() => handleShowRepos()}>Show Repos</RepoButton>
-      )}
-      {showRepos && (
-        <RepoCardsList>
-          {reposList.map((repo) => {
-            const {
-              html_url,
-              name,
-              description,
-              stargazers_count,
-              updated_at,
-            } = repo;
-            return (
-              <RepoCard key={`repo-${nanoid()}`}>
-                <RepoTitle>
-                  <RepoLink href={html_url} target='_blank'>
-                    {name}
-                  </RepoLink>
-                  <FaRegHandPointer />
-                </RepoTitle>
-                <RepoText>
-                  {description ? description : 'No description'}
-                </RepoText>
-                <RepoWrapper>
-                  <RepoExtra>
-                    <FaRegStar />
-                    {stargazers_count}
-                  </RepoExtra>
-                  <GoPrimitiveDot size={10} />
-                  <RepoExtra>Updated at {formatDate(updated_at)}</RepoExtra>
-                </RepoWrapper>
-              </RepoCard>
-            );
-          })}
-        </RepoCardsList>
+      {reposList.length > 0 && (
+        <div>
+          {!showRepos && !isLoading && (
+            <RepoButton onClick={() => handleShowRepos()}>
+              Show Repos
+            </RepoButton>
+          )}
+          {showRepos && (
+            <RepoCardsList>
+              {reposList.map((repo) => {
+                const {
+                  html_url,
+                  name,
+                  description,
+                  stargazers_count,
+                  updated_at,
+                } = repo;
+                return (
+                  <RepoCard key={`repo-${nanoid()}`}>
+                    <RepoTitle>
+                      <RepoLink href={html_url} target='_blank'>
+                        {name}
+                      </RepoLink>
+                      <FaRegHandPointer />
+                    </RepoTitle>
+                    <RepoText>
+                      {description ? description : 'No description'}
+                    </RepoText>
+                    <RepoWrapper>
+                      <RepoExtra>
+                        <FaRegStar />
+                        {stargazers_count}
+                      </RepoExtra>
+                      <GoPrimitiveDot size={10} />
+                      <RepoExtra>Updated at {formatDate(updated_at)}</RepoExtra>
+                    </RepoWrapper>
+                  </RepoCard>
+                );
+              })}
+            </RepoCardsList>
+          )}
+        </div>
       )}
     </RepoContainer>
   );
