@@ -4,7 +4,7 @@
 
 <img src='./screenshot-github-user-search.png' alt='Application screenshot'/>
 
-##Sobre
+## Sobre
 Esse projeto foi criado com a biblioteca React JS e com os dados provenientes da [GitHub API](https://docs.github.com/pt/rest). Trata-se de uma página para pesquisa de usuários do GitHub. As buscas bem sucedidas retornam um quadro com informações do usuário e dos respectivos repositórios.
 
 O design e layout foram baseados [nesse desafio](https://www.frontendmentor.io/challenges/github-user-search-app-Q09YOgaH6) do site Frontend Mentor.
