@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { ThemeProvider } from 'styled-components';
+import React, { useState, useEffect, useRef } from 'react';
 
 // ICONS
 import { RiSearchLine } from 'react-icons/ri';
+
+// IMAGE
+import usernameRules from '@Images/github-username-composition-rules.png';
 
 // COMPONENTS
 import {
@@ -10,18 +12,33 @@ import {
   SearchForm,
   SearchField,
   SearchButton,
+  SearchErrorMsg,
+  SearchErrorLink,
   Wrapper,
 } from '@Styles/main';
 
-const GitSearch = ({ updateUsername, buildUserProfile }) => {
+// UTILS
+import { checkUsername } from '@Utils/aux';
+
+const GitSearch = ({ buildUserProfile }) => {
   const [inputUsername, setInputUsername] = useState('');
   const [username, setUsername] = useState('');
+  const [showError, setShowError] = useState(false);
+
+  const firstUpdate = useRef(true);
 
   useEffect(() => {
-    if (!username) {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
       return;
     }
 
+    if (!checkUsername(username)) {
+      setShowError(true);
+      return;
+    }
+
+    setShowError(false);
     buildUserProfile(username);
   }, [username]);
 
@@ -35,18 +52,29 @@ const GitSearch = ({ updateUsername, buildUserProfile }) => {
   };
 
   return (
-    <SearchContainer>
-      <SearchForm onSubmit={(e) => submitHandler(e)}>
-        <Wrapper>
-          <RiSearchLine size={30} />
-          <SearchField
-            placeholder='Github username'
-            onChange={(e) => inputChangeHandler(e)}
-          />
-        </Wrapper>
-        <SearchButton>Search</SearchButton>
-      </SearchForm>
-    </SearchContainer>
+    <>
+      <SearchContainer showError={showError}>
+        <SearchForm onSubmit={(e) => submitHandler(e)}>
+          <Wrapper>
+            <RiSearchLine size={30} />
+            <SearchField
+              placeholder='Github username'
+              onChange={(e) => inputChangeHandler(e)}
+            />
+          </Wrapper>
+          <SearchButton>Search</SearchButton>
+        </SearchForm>
+      </SearchContainer>
+      {showError && (
+        <SearchErrorMsg>
+          Please enter a{' '}
+          <SearchErrorLink href={usernameRules} target='_blank'>
+            valid username
+          </SearchErrorLink>
+          .
+        </SearchErrorMsg>
+      )}
+    </>
   );
 };
 

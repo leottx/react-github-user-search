@@ -12,6 +12,7 @@ export const lightMode = {
     txt_3: '#4C64A2',
     txt_4: '#A1B0C7',
     txt_5: '#266CFF',
+    txt_6: '#DC2626',
     white: '#FFFFFF',
   },
 };
@@ -28,6 +29,7 @@ export const darkMode = {
     txt_3: '#FFB300',
     txt_4: '#A1B0C7',
     txt_5: '#266CFF',
+    txt_6: '#DC2626',
     white: '#FFFFFF',
   },
 };

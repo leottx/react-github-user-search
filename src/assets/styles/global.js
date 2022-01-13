@@ -2,21 +2,39 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 import SpaceMonoBold from '@Fonts/SpaceMono-Bold.ttf';
 import SpaceMonoRegular from '@Fonts/SpaceMono-Regular.ttf';
+import MontserratMedium from '@Fonts/Montserrat-Medium.ttf';
+import MontserratBold from '@Fonts/Montserrat-Bold.ttf';
 
 export const GlobalStyles = createGlobalStyle`
   // FONTS
+
+  // Space Mono
   @font-face {
     font-family: 'Space Mono';
-    src: url(${SpaceMonoBold}) format('truetype');
+    src: ${`url(${SpaceMonoBold}) format('truetype')`};
     font-weight: 700;
     font-style: normal;
   };
   @font-face {
     font-family: 'Space Mono';
-    src: url(${SpaceMonoRegular}) format('truetype');
+    src: ${`url(${SpaceMonoRegular}) format('truetype')`};
     font-weight: 400;
     font-style: normal;
   };
+
+  // Montserrat
+  @font-face {
+    src: ${`url(${MontserratMedium}) format('truetype');`};
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+  }
+  @font-face {
+    src: ${`url(${MontserratBold}) format('truetype');`};
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+  }
 
   // VARIABLES
   :root {
