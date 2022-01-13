@@ -440,7 +440,6 @@ export const LoadingDot = styled.span`
 
 export const NotFoundContainer = styled.section`
   display: flex;
-  /* flex-direction: column; */
   font-family: 'Montserrat';
   flex-wrap: wrap;
   margin-top: 4.8rem;

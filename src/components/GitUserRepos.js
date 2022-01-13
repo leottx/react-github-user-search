@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 // ICONS
-import { FaRegStar, FaStar } from 'react-icons/fa';
+import { FaRegStar } from 'react-icons/fa';
 import { GoPrimitiveDot } from 'react-icons/go';
 import { FaRegHandPointer } from 'react-icons/fa';
 

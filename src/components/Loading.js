@@ -1,4 +1,6 @@
 import React from 'react';
+
+// STYLES
 import { LoadingText, LoadingDot } from '@Styles/main';
 
 const Loading = () => {

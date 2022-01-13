@@ -1,13 +1,12 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
+// FONTS
 import SpaceMonoBold from '@Fonts/SpaceMono-Bold.ttf';
 import SpaceMonoRegular from '@Fonts/SpaceMono-Regular.ttf';
 import MontserratMedium from '@Fonts/Montserrat-Medium.ttf';
 import MontserratBold from '@Fonts/Montserrat-Bold.ttf';
 
 export const GlobalStyles = createGlobalStyle`
-  // FONTS
-
   // Space Mono
   @font-face {
     font-family: 'Space Mono';
