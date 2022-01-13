@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 // ICONS
 import { MdLocationOn, MdLink, MdOutlineApartment } from 'react-icons/md';

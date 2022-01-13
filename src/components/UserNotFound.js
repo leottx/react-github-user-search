@@ -1,5 +1,6 @@
 import React from 'react';
 
+// IMAGES
 import octocat from '@Images/octocat-not-found.png';
 
 // STYLES

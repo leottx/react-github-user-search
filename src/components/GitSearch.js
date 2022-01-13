@@ -6,7 +6,7 @@ import { RiSearchLine } from 'react-icons/ri';
 // IMAGE
 import usernameRules from '@Images/github-username-composition-rules.png';
 
-// COMPONENTS
+// STYLES
 import {
   SearchContainer,
   SearchForm,
