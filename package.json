@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/leottx/react-github-user-search/issues"
   },
-  "homepage": "https://github.com/leottx/react-github-user-search#readme",
+  "homepage": "https://leottx.github.io/react-github-user-search/",
   "dependencies": {
     "nanoid": "^3.1.30",
     "polished": "^4.1.3"
